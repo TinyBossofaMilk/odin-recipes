@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- universal selector *{....}-->
+    * {
+        color: purple;
+    }
+
+    <!-- [type] {...} styles only that type-->
+    h1 {
+        color: blue;
+    }
+<head>
+
+</head>
+
+<body>
+    <!-- the paragraph below was categorized into hello, and hello is selectively styled-->
+    .hello {
+        color: red;
+    }
+
+    .hello.header{
+        color: blue;
+    }
+
+    
+    <p class="hello"> this paragraph is part of the hello class </p>
+    <h1 class="hello"> header 1, part of hello class </h1>
+    <p class="hello world"> this paragraph is part of the hello AND world class. Spaces separate classes</p>
+    <div id="idk"> don't use these. ids are a bit useless.</div>
+
+
+
+
+
+    /* We can use styling to apply to more than one */
+    .category1, 
+    .category2 {
+        background-color: brown;
+    }
+
+    .category1{
+        font-size: 23;
+    }
+    
+
+
+</body>
+
+
+</html>
