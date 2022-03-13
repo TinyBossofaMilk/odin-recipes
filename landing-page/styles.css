@@ -1,3 +1,104 @@
-header{
+body
+{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.front-text,
+.quote-section
+{
+    flex: 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.centered-text
+{
+    text-align: center;
+}
+
+.side-padding{
+    padding-left: 90px;
+    padding-right: 90px;
+}
+
+.header,
+.front-feature,
+.subscribe-section{
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+}
+
+.header {
+    background-color: magenta;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.header a{
+    padding:0 5px;
+}
+
+.front-feature {
+    display: flex;
+    justify-content: center;
+    background-color: beige;
+    gap: 15px;
+}
+
+.front-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-table
+{
+    flex: 1 auto;
+    display: flex;
+    padding: 30px;
+    justify-content: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    max-width: 200px;
+    text-align: center;
     
+}
+
+.quote-section{
+    display: flex;
+    padding: 30px 150px;
+    text-align: justify;
+    background-color: slategrey;
+}
+
+.quote-section div{
+    text-align: right;
+}
+
+.subscribe-section{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.subscribe-text{
+    background-color: cornflowerblue;
+    display: flex;
+    padding: 20px 40px;
+}
+
+.footer{    
+    text-align: center;
 }
