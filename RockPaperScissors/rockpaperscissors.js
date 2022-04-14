@@ -5,8 +5,22 @@ loop through 5 games
 prompt and take input
 identify rock paper scissors
 
+Create three buttons, one for each selection. 
+Add an event listener to the buttons that call your playRound 
+function with the correct playerSelection every time a button is clicked. 
+(you can keep the console.logs for this step)
 
+Add a div for displaying results and change all of your console.logs into DOM methods.
 
+Display the running score, and announce a winner of the
+ game once one player reaches 5 points.
+ 
+You will likely have to refactor (rework/rewrite) your original code to make 
+it work for this. That’s OK! Reworking old code is an important
+ part of a programmer’s life.
+
+Once you’re all done with your UI and made sure everything’s satisfactory, 
+commit your changes to the rps-ui branch.
 */
 
 function computerPlay()
@@ -21,7 +35,7 @@ function computerPlay()
 }
 
 
-function playRound(playerSelection, computerSelection)
+function playRound(playerSelection, computerSelection = computerPlay())
 {
     if(playerSelection.match(/rock/))
     {
@@ -53,7 +67,7 @@ function playRound(playerSelection, computerSelection)
 
     }
 
-    return undefined;
+    return alert("enter something intelligent idiot");
 }
 
 //let match = (input, comparison) => text.match(/comparison/);
@@ -65,8 +79,54 @@ function game()
 
     for(let i = 1; i <= NUMOFGAMES; i++)
     {
-        //`Round ${i} out of ${NUMOFGAMES}`;
         console.log( `Round ${i} out of ${NUMOFGAMES}: ` + 
                 playRound(prompt("Enter 'Rock', 'Paper', or 'Scissors'!",), computerPlay()));
     }
 }
+
+
+
+
+const body = document.querySelector("body");
+
+let buttons = [];
+
+for(let i = 0; i < 3; i++)
+    {buttons.push(document.createElement('button'));}
+
+buttons[0].textContent =  "rock";
+buttons[0].id =  "rock";
+buttons[1].textContent = "paper";
+buttons[1].id = "paper";
+buttons[2].textContent = "scissors";
+buttons[2].id = "scissors";
+
+const score = document.createElement("div");
+const result = document.createElement("div");
+
+let playerScore = 0;
+let computerScore = 0;
+
+buttons.forEach((button) => {
+    button.addEventListener('click', function (id = button.id) {
+        result.textContent = playRound(this.id);
+
+        if(result.textContent.includes("win"))
+        {playerScore++;}
+        else if(result.textContent.includes("lose"))
+        {computerScore++;}
+        
+        if(playerScore == 5)
+        {alert("You win!");}
+        else if(computerScore == 5)
+        {alert("You lose :/");}
+        
+        score.textContent = `Player's Score: ${playerScore} Computer's Score: ${computerScore}`;
+        });
+});
+
+buttons.forEach((button) => {
+    body.appendChild(button);    
+});
+body.appendChild(score);
+body.appendChild(result);
